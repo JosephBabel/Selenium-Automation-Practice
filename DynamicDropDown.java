@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
-public class DynamicDropDown
+public class DynamicDropdown
 {
 
 	public static void main(String[] args) throws InterruptedException
@@ -25,8 +25,8 @@ public class DynamicDropDown
 		{
 			driver.findElement(By.id("hrefIncAdt")).click();
 			// Use TestNG to validate that the drop down text is correct after adding passengers
-			String dropDownText = driver.findElement(By.id("divpaxinfo")).getText();
-			Assert.assertEquals(dropDownText, (i + 1) + " Adult");
+			String dropdownText = driver.findElement(By.id("divpaxinfo")).getText();
+			Assert.assertEquals(dropdownText, (i + 1) + " Adult");
 		}
 
 		// Done
