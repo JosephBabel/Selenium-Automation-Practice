@@ -22,7 +22,7 @@ public class Checkbox
 		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
 
 		// Test 1: Verify checkbox selection
-		verifySeniorCitizenCheckBoxSelection(driver);
+		verifySeniorCitizenCheckboxSelection(driver);
 
 		// Test 2: Verify total number of checkboxes
 		verifyTotalNumberOfCheckboxes(driver);
@@ -31,7 +31,7 @@ public class Checkbox
 	}
 
 	// Verifies if the Senior Citizen checkbox is selected or not
-	private static void verifySeniorCitizenCheckBoxSelection(WebDriver driver)
+	private static void verifySeniorCitizenCheckboxSelection(WebDriver driver)
 	{
 		WebElement checkbox = driver.findElement(By.cssSelector("[id*='SeniorCitizenDiscount']"));
 		Assert.assertFalse(checkbox.isSelected());
