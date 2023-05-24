@@ -1,40 +1,89 @@
+
 /*
- * The code uses Selenium WebDriver to automate a dynamic dropdown scenario. It adds four more 
- * passengers to the dropdown and validates the dropdown text using TestNG assertions.
+ * The code uses Selenium WebDriver to automate the selection of dropdown options on a webpage. 
+ * It selects the origin and destination flights, chooses the current date, verifies the functionality 
+ * of the passenger dropdown, and checks if the return date dropdown is enabled after selecting a round trip.
  */
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
 public class DynamicDropdown
 {
+	private static final String PATH_TO_WEBDRIVER = "C:/Users/Joey/Documents/chromedriver.exe/";
+	private static final String URL = "https://rahulshettyacademy.com/dropdownsPractise/";
 
 	public static void main(String[] args) throws InterruptedException
 	{
+		// Setup
+		System.setProperty("webdriver.chrome.driver", PATH_TO_WEBDRIVER);
 		WebDriver driver = new ChromeDriver();
-		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
+		driver.get(URL);
 
-		// Select dynamic drop down
-		driver.findElement(By.id("divpaxinfo")).click();
-
+		// Select origin dropdown menu
+		driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
 		Thread.sleep(1000);
 
-		// Add four more passengers
-		for (int i = 1; i < 5; i++) 
-		{
-			driver.findElement(By.id("hrefIncAdt")).click();
-			// Use TestNG to validate that the drop down text is correct after adding passengers
-			String dropdownText = driver.findElement(By.id("divpaxinfo")).getText();
-			Assert.assertEquals(dropdownText, (i + 1) + " Adult");
-		}
+		// Select BLR origin flight
+		driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_originStation1_CTNR'] //a[@value='BLR']")).click();
+		Thread.sleep(1000);
 
-		// Done
+		// Select MAA destination flight
+		driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='MAA']")).click();
+		Thread.sleep(1000);
+
+		// Select current date
+		driver.findElement(By.cssSelector(".ui-state-default.ui-state-highlight.ui-state-hover")).click();
+
+		// Select round trip
+		verifyReturnDateDropdown(driver);
+
+		// Select passengers and add four more
+		verifyPassengersDropdown(driver, 4);
+
+		// Close passenger drop down
 		driver.findElement(By.id("btnclosepaxoption")).click();
 		
-		driver.close();
-		
-		System.out.println("The test was successful!");
+		// Search
+		driver.findElement(By.id("ctl00_mainContent_btn_FindFlights")).click();
+
+		// Quit
+		driver.quit();
 	}
 
+	// Verify that the passenger drop down is correctly adding passengers
+	private static void verifyPassengersDropdown(WebDriver driver, int numPassengersToAdd) throws InterruptedException
+	{
+		driver.findElement(By.id("divpaxinfo")).click();
+		Thread.sleep(1000);
+
+		for (int i = 0; i < numPassengersToAdd; i++)
+		{
+			driver.findElement(By.id("hrefIncAdt")).click();
+			String dropdownText = driver.findElement(By.id("divpaxinfo")).getText();
+			Assert.assertEquals(dropdownText, (i + 2) + " Adult");
+		}
+		
+		System.out.println("Passenger dropdown test successfully passed.");
+	}
+
+	// Verify that the return date dropdown is enabled after selecting round trip
+	private static void verifyReturnDateDropdown(WebDriver driver)
+	{
+		WebElement returnDateDropdown = driver.findElement(By.id("Div1"));
+
+		Assert.assertTrue(isDisabled(returnDateDropdown));
+		driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_1")).click();
+		Assert.assertFalse(isDisabled(returnDateDropdown));
+
+		System.out.println("Return date dropdown successfully test passed.");
+	}
+
+	// Use opacity to determine disabled state for a WebElement
+	private static boolean isDisabled(WebElement element)
+	{
+		return element.getAttribute("style").contains("opacity: 0.5");
+	}
 }
