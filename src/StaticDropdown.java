@@ -11,13 +11,15 @@ import org.openqa.selenium.support.ui.Select;
 
 public class StaticDropdown
 {
+	private static final String PATH_TO_WEBDRIVER = "C:/Users/Joey/Documents/chromedriver.exe/";
+	private static final String URL = "https://rahulshettyacademy.com/dropdownsPractise/";
 
 	public static void main(String[] args)
 	{
+		// Setup
+		System.setProperty("webdriver.chrome.driver", PATH_TO_WEBDRIVER);
 		WebDriver driver = new ChromeDriver();
-		
-		// Navigate to practice page
-		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
+		driver.get(URL);
 		
 		// Select dropdown
 		WebElement staticDropDown = driver.findElement(By.cssSelector("select[name*='DropDownListCurrency']"));
@@ -32,6 +34,9 @@ public class StaticDropdown
 		
 		dropdown.selectByValue("INR");
 		System.out.println(dropdown.getFirstSelectedOption().getText());
+		
+		// Quit
+		driver.quit();
 	}
 
 }
