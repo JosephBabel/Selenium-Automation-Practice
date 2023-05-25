@@ -16,6 +16,7 @@ public class Alert
 
 	public static void main(String[] args)
 	{
+		// Setup
 		System.setProperty("webdriver.chrome.driver", PATH_TO_WEBDRIVER);
 		WebDriver driver = new ChromeDriver();
 		driver.get(URL);

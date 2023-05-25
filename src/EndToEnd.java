@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
-public class DynamicDropdown
+public class EndToEnd
 {
 	private static final String PATH_TO_WEBDRIVER = "C:/Users/Joey/Documents/chromedriver.exe/";
 	private static final String URL = "https://rahulshettyacademy.com/dropdownsPractise/";
