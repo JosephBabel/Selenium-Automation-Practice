@@ -14,12 +14,16 @@ import org.testng.Assert;
 
 public class Checkbox
 {
+	private static final String PATH_TO_WEBDRIVER = "C:/Users/Joey/Documents/chromedriver.exe/";
+	private static final String URL = "https://rahulshettyacademy.com/dropdownsPractise/";
 	private static final int NUM_CHECKBOXES = 6;
 
 	public static void main(String[] args)
 	{
+		// Setup
+		System.setProperty("webdriver.chrome.driver", PATH_TO_WEBDRIVER);
 		WebDriver driver = new ChromeDriver();
-		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
+		driver.get(URL);
 
 		// Test 1: Verify checkbox selection
 		verifySeniorCitizenCheckboxSelection(driver);
@@ -27,7 +31,8 @@ public class Checkbox
 		// Test 2: Verify total number of checkboxes
 		verifyTotalNumberOfCheckboxes(driver);
 
-		driver.close();
+		// Quit
+		driver.quit();
 	}
 
 	// Verifies if the Senior Citizen checkbox is selected or not
