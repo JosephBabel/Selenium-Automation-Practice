@@ -1,8 +1,19 @@
+
 /*
- * This code uses Selenium WebDriver to automate browser interactions for 
- * checkbox-related tests on a web page. It verifies the selection state 
- * of a specific checkbox and checks the total number of checkboxes.
- */
+ * This code demonstrates automated testing of checkboxes using Selenium WebDriver.
+ * It utilizes the ChromeDriver to interact with the Chrome browser.
+ * 
+ * The code navigates to a specific URL and performs two tests related to checkboxes.
+ * 		Test 1: verifies if the Senior Citizen checkbox is selected or not, and toggles its state.
+ * 		Test 2: verifies the total number of checkboxes on the page.
+ * 				The expected number of checkboxes is specified as NUM_CHECKBOXES.
+ * 
+ * Prerequisites:
+ * 		Selenium WebDriver and ChromeDriver must be properly installed and configured.
+ * 		The ChromeDriver executable file must be located at the specified path.
+ * 
+ * This code is for demonstration purposes and can be modified for specific checkbox testing scenarios.
+*/
 
 import java.util.List;
 
