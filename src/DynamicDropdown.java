@@ -2,6 +2,9 @@
  * This code demonstrates the automation of selecting values from dynamic dropdown menus using Selenium WebDriver. 
  * It utilizes the ChromeDriver to interact with the Chrome browser.
  * 
+ * The code navigates to a specific URL and performs a series of actions to select values from the dropdown menus.
+ * The selected origin and destination values are "BLR" and "MAA" respectively.
+ * 
  * Prerequisites:
  * 		Selenium WebDriver and ChromeDriver must be properly installed and configured.
  * 		The ChromeDriver executable file must be located at the specified path.
