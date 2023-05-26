@@ -1,4 +1,3 @@
-
 /*
  * This code demonstrates automated testing of checkboxes using Selenium WebDriver.
  * It utilizes the ChromeDriver to interact with the Chrome browser.
