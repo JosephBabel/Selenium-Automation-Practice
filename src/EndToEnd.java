@@ -1,9 +1,21 @@
-
 /*
- * The code uses Selenium WebDriver to automate the selection of dropdown options on a webpage. 
- * It selects the origin and destination flights, chooses the current date, verifies the functionality 
- * of the passenger dropdown, and checks if the return date dropdown is enabled after selecting a round trip.
- */
+ * This code demonstrates an end-to-end test scenario using Selenium WebDriver.
+ * It utilizes the ChromeDriver to interact with the Chrome browser.
+ * 
+ * The code navigates to a specific URL and performs a series of actions to simulate a user flow:
+ * 		Selects an origin flight and a destination flight from dropdown menus.
+ * 		Selects the current date.
+ * 		Verifies the return date dropdown is enabled after selecting the round trip option.
+ * 		Verifies the passenger dropdown correctly adds the specified number of passengers.
+ * 		Closes the passenger dropdown.
+ * 		Initiates a flight search.
+ * 
+ * Prerequisites:
+ * 		Selenium WebDriver and ChromeDriver must be properly installed and configured.
+ * 		The ChromeDriver executable file must be located at the specified path.
+ * 
+ * This code is for demonstration purposes and can be modified for specific end-to-end testing scenarios.
+*/
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
