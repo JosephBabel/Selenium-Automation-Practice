@@ -1,10 +1,22 @@
 
 /*
- * This code uses Selenium WebDriver to automate browser interactions. 
- * It launches a ChromeDriver, opens a webpage, enters text into an 
- * input field, clicks on buttons to trigger alert and confirm dialogs, 
- * retrieves their text content, and accepts or dismisses them accordingly.
- */
+ * This code demonstrates the interaction with alert dialogs using Selenium WebDriver.
+ * It utilizes the ChromeDriver to interact with the Chrome browser.
+ * 
+ * The code navigates to a specific URL and performs the following actions:
+ * 		Activates an alert box with one option by entering "Joey" in the input field and clicking the alert button.
+ * 		The text of the alert is printed to the console.
+ * 		Accepts the alert dialog.
+ * 		Activates an alert box with two options by entering "Joey" in the input field and clicking the confirm button.
+ * 		The text of the alert is printed to the console.
+ * 		Dismisses the confirm dialog.
+ * 
+ * Prerequisites:
+ * 		Selenium WebDriver and ChromeDriver must be properly installed and configured.
+ * 		The ChromeDriver executable file must be located at the specified path.
+ * 
+ * This code is for demonstration purposes and can be modified for specific alert dialog testing scenarios.
+*/
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
