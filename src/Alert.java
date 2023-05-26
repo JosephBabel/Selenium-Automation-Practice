@@ -48,5 +48,8 @@ public class Alert
 
 		// Dismiss the confirm dialog
 		driver.switchTo().alert().dismiss();
+		
+		// Quit
+		driver.quit();
 	}
 }
