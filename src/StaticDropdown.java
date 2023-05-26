@@ -1,8 +1,19 @@
 /*
- * This program demonstrates how to use Selenium WebDriver to interact with a static 
- * dropdown, select options using different methods, and retrieve the selected option's text.
- */
-
+ * This code demonstrates the selection of options from a static dropdown menu using Selenium WebDriver.
+ * It utilizes the ChromeDriver to interact with the Chrome browser.
+ * 
+ * The code navigates to a specific URL and performs the following actions:
+ * 		Locates the static dropdown menu on the page.
+ * 		Creates a Select object to interact with the dropdown.
+ * 		Selects different options from the dropdown using different methods: index, visible text, and value.
+ * 		The selected option is printed to the console using getFirstSelectedOption().
+ * 
+ * Prerequisites:
+ * 		Selenium WebDriver and ChromeDriver must be properly installed and configured.
+ *		The ChromeDriver executable file must be located at the specified path.
+ *
+ * This code is for demonstration purposes and can be modified for specific static dropdown testing scenarios.
+*/
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
