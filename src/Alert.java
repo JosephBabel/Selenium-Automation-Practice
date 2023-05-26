@@ -1,4 +1,3 @@
-
 /*
  * This code demonstrates the interaction with alert dialogs using Selenium WebDriver.
  * It utilizes the ChromeDriver to interact with the Chrome browser.

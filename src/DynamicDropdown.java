@@ -42,5 +42,4 @@ public class DynamicDropdown
 		// Quit
 		driver.quit();
 	}
-
 }
