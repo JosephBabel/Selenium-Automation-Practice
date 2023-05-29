@@ -9,7 +9,7 @@
  * 		Selenium WebDriver and ChromeDriver must be properly installed and configured.
  * 		The ChromeDriver executable file must be located at the specified path.
  * 
- * This code is for demonstration purposes and can be modified for specific use cases involving dynamic dropdowns.
+ * This code is for demonstration purposes and can be modified for specific use cases.
  */
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
