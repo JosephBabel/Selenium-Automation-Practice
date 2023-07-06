@@ -8,24 +8,25 @@
  * This code is for demonstration purposes and can be modified for specific use cases.
 */
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AddItemsToCart
 {
-	private static final String PATH_TO_WEBDRIVER = "C:/Users/Joey/Documents/chromedriver.exe/";
+	private static final String PATH_TO_WEBDRIVER = "C:/Users/Joey/Documents/geckodriver.exe/";
 	private static final String URL = "https://rahulshettyacademy.com/seleniumPractise/#/";
 
 	public static void main(String[] args) throws InterruptedException
 	{
 		// Setup
-		System.setProperty("webdriver.chrome.driver", PATH_TO_WEBDRIVER);
-		WebDriver driver = new ChromeDriver();
+		System.setProperty("webdriver.firefox.driver", PATH_TO_WEBDRIVER);
+		WebDriver driver = new FirefoxDriver();
 		driver.get(URL);
-
-		// Implicitely wait for all items to load
-		Thread.sleep(1000);
 
 		// Example: Add single items to cart
 		//AddToCart(driver, "Cucumber");
@@ -39,8 +40,11 @@ public class AddItemsToCart
 	// Add single item to cart with String
 	private static void AddToCart(WebDriver driver, String itemName)
 	{
-		// Use XPath to find correct 'ADD TO CART' button
-		driver.findElement(By.xpath("//*[contains(text(), '" + itemName + "')]/following-sibling::*//button")).click();
+		// Wait for the button to be clickable and the click the "ADD TO CART"
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		By AddToCartPath = By.xpath("//*[contains(text(), '" + itemName + "')]/following-sibling::*//button");
+		wait.until(ExpectedConditions.elementToBeClickable(AddToCartPath));
+		driver.findElement(AddToCartPath).click();
 	}
 
 	// Add multiple items to cart with String array
